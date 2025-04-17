@@ -1,0 +1,13 @@
+default:
+  target: bigquery
+  outputs:
+    bigquery:
+      type: bigquery
+      method: service-account
+      keyfile: "./dbt-service-account.json"
+      project: "numfocus-pypi"
+      dataset: "bigquery-public-data"
+      threads: 10
+      timeout_seconds: 300
+      location: US
+      priority: interactive
