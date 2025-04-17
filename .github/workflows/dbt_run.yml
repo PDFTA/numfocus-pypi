@@ -26,7 +26,7 @@ jobs:
       - run: dbt --version
 
       - name: Set up Google Cloud credentials
-        run: 'echo "$KEYFILE" > ./.gcloud/dbt-service-account.json'
+        run: 'echo "$KEYFILE" > ./dbt-service-account.json'
         shell: bash
         env:
           KEYFILE: ${{secrets.DBT_GOOGLE_BIGQUERY_KEYFILE}}
