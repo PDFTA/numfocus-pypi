@@ -2,8 +2,8 @@
 version: 2
 sources:
   - name: pypi
-    project: numfocus-pypi
-    dataset: bigquery-public-data.pypi
+    project: bigquery-public-data
+    dataset: pypi
 
     tables:
       - name: file_downloads
