@@ -4,7 +4,7 @@
         description='NumFOCUS downloads data from the GBQ public dataset.',
     )
 }}
-WITH source AS (
+WITH numfocus_data AS (
     SELECT
         *,
     FROM {{ source("pypi", "file_downloads") }}
@@ -12,3 +12,7 @@ WITH source AS (
         AND file_downloads.file.project IN ('pymc3')
 
 )
+
+SELECT *
+FROM numfocus_data
+LIMIT 100
