@@ -1,4 +1,4 @@
-default:
+numfocus-pypi:
   target: bigquery
   outputs:
     bigquery:
