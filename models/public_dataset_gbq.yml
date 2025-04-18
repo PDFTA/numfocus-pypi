@@ -1,10 +1,9 @@
 ---
 version: 2
-
 sources:
   - name: pypi
     project: numfocus-pypi
-    dataset: numfocus
+    dataset: bigquery-public-data.pypi
 
     tables:
-      - name: bronze_numfocus_projects
+      - name: file_downloads
