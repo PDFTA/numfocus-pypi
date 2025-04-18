@@ -2,6 +2,7 @@ name: dbt-run
 
 on:
   push:
+  workflow_dispatch:
 
 env:
   DBT_PROFILES_DIR: ./
