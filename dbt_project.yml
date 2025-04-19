@@ -9,3 +9,6 @@ test-paths: ["tests"]
 
 models:
   numfocus-pypi:
+  +persist_docs:
+    relation: true
+    columns: true
