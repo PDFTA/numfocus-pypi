@@ -7,3 +7,5 @@ sources:
 
     tables:
       - name: file_downloads
+
+      - name: distribution_metadata
