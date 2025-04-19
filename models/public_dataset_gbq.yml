@@ -1,0 +1,9 @@
+---
+version: 2
+sources:
+  - name: pypi
+    project: bigquery-public-data
+    dataset: pypi
+
+    tables:
+      - name: file_downloads
