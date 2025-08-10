@@ -2,10 +2,13 @@ name: "numfocus_pypi"
 version: "1.0.0"
 config-version: 2
 
-profile: "numfocus-pypi"
+profile: "pypi-dwh"
 
 model-paths: ["models"]
 test-paths: ["tests"]
 
 models:
   numfocus-pypi:
+  +persist_docs:
+    relation: true
+    columns: true

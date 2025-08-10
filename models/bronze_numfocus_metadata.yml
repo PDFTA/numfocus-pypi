@@ -1,0 +1,18 @@
+---
+version: 2
+
+models:
+  - name: bronze_numfocus_metadata
+    description: |
+      This table contains metadata about NumFOCUS projects, including their names, descriptions, and other relevant information.
+    columns:
+      - name: project_name
+        description: The name of the NumFOCUS project.
+      - name: version
+        description: Package version.
+      - name: maintainer_email
+        description: The email address of the project's maintainer.
+      - name: filename
+        description: The name of the file associated with the package.
+      - name: upload_time
+        description: The time when the package was uploaded.

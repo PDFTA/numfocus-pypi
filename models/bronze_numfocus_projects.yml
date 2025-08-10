@@ -1,10 +1,15 @@
 ---
 version: 2
 
-sources:
-  - name: pypi
-    project: numfocus-pypi
-    dataset: numfocus
-
-    tables:
-      - name: bronze_numfocus_projects
+models:
+  - name: bronze_numfocus_projects
+    description: |
+      NumFOCUS package download data from the BigQuery public PyPI dataset.
+      Contains incremental data with daily partitioning for efficient querying.
+    columns:
+      - name: timestamp
+        description: Download timestamp, used for partitioning
+      - name: file
+        description: File information including project name and version
+      - name: details
+        description: Download details including client information
