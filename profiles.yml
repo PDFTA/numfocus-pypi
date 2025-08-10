@@ -1,11 +1,10 @@
-numfocus-pypi:
+pypi-dwh:
   target: bigquery
   outputs:
     bigquery:
       type: bigquery
-      method: service-account
-      keyfile: "./dbt-service-account.json"
-      project: "numfocus-pypi"
+      method: oauth
+      project: "pypi-dwh"
       dataset: "numfocus_pypi"
       threads: 10
       timeout_seconds: 300

@@ -7,5 +7,187 @@ sources:
 
     tables:
       - name: file_downloads
+        description: |
+          Contains download events for files in the PyPI dataset.
+          Includes fields for timestamp, file information, and client details.
+        docs:
+          show: true
+
+        columns:
+          - name: timestamp
+            description: Timestamp of the download event, used for partitioning
+            data_type: TIMESTAMP
+
+          - name: country_code
+            description: Country code of the client making the request
+            data_type: STRING
+
+          - name: url
+            description: URL of the downloaded file
+            data_type: STRING
+
+          - name: project
+            description: Name of the project associated with the downloaded file
+            data_type: STRING
+
+          - name: file
+            description: Name of the file that was downloaded
+            data_type: RECORD
+            fields:
+              - name: filename
+                data_type: STRING
+              - name: project
+                data_type: STRING
+              - name: version
+                data_type: STRING
+              - name: type
+                data_type: STRING
+
+          - name: details
+            description: Additional details about the download event
+            data_type: RECORD
+            fields:
+              - name: installer
+                data_type: RECORD
+                fields:
+                  - name: name
+                    data_type: STRING
+                  - name: version
+                    data_type: STRING
+              - name: python
+                data_type: STRING
+              - name: implementation
+                data_type: RECORD
+                fields:
+                  - name: name
+                    data_type: STRING
+                  - name: version
+                    data_type: STRING
+
+              - name: distro
+                data_type: RECORD
+                fields:
+                  - name: name
+                    data_type: STRING
+                  - name: version
+                    data_type: STRING
+                  - name: id
+                    data_type: STRING
+                  - name: libc
+                    data_type: RECORD
+                    fields:
+                      - name: lib
+                        data_type: STRING
+                      - name: version
+                        data_type: STRING
+              - name: system
+                data_type: RECORD
+                fields:
+                  - name: name
+                    data_type: STRING
+                  - name: release
+                    data_type: STRING
+
+              - name: cpu
+                data_type: STRING
+
+              - name: openssl_version
+                data_type: STRING
+
+              - name: setuptools_version
+                data_type: STRING
+
+              - name: rustc_version
+                data_type: STRING
+
+              - name: ci
+                data_type: BOOLEAN
+
+          - name: tls_protocol
+            description: TLS protocol used for the download
+            data_type: STRING
+          - name: tls_cipher
+            description: TLS cipher suite used for the download
+            data_type: STRING
 
       - name: distribution_metadata
+        columns:
+          - name: metadata_version
+            data_type: STRING
+          - name: name
+            data_type: STRING
+          - name: version
+            data_type: STRING
+          - name: summary
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: description_content_type
+            data_type: STRING
+          - name: author
+            data_type: STRING
+          - name: author_email
+            data_type: STRING
+          - name: maintainer
+            data_type: STRING
+          - name: maintainer_email
+            data_type: STRING
+          - name: license
+            data_type: STRING
+          - name: keywords
+            data_type: STRING
+          - name: classifiers
+            data_type: STRING
+          - name: platform
+            data_type: STRING
+          - name: home_page
+            data_type: STRING
+          - name: download_url
+            data_type: STRING
+          - name: requires_python
+            data_type: STRING
+          - name: requires
+            data_type: STRING
+          - name: provides
+            data_type: STRING
+          - name: obsoletes
+            data_type: STRING
+          - name: requires_dist
+            data_type: STRING
+          - name: provides_dist
+            data_type: STRING
+          - name: obsoletes_dist
+            data_type: STRING
+          - name: requires_external
+            data_type: STRING
+          - name: project_urls
+            data_type: STRING
+          - name: uploaded_via
+            data_type: STRING
+          - name: upload_time
+            data_type: TIMESTAMP
+          - name: filename
+            data_type: STRING
+          - name: size
+            data_type: INTEGER
+          - name: path
+            data_type: STRING
+          - name: python_version
+            data_type: STRING
+          - name: packagetype
+            data_type: STRING
+          - name: comment_text
+            data_type: STRING
+          - name: has_signature
+            data_type: BOOLEAN
+          - name: md5_digest
+            data_type: STRING
+          - name: sha256_digest
+            data_type: STRING
+          - name: blake2_256_digest
+            data_type: STRING
+          - name: license_expression
+            data_type: STRING
+          - name: license_files
+            data_type: STRING
+            mode: REPEATED
