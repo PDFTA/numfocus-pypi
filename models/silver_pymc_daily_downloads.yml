@@ -1,0 +1,38 @@
+---
+version: 2
+
+models:
+  - name: silver_pymc_daily_downloads
+    description: |
+      Daily aggregated download metrics for PyMC packages with business logic and enrichment.
+      This silver tier model transforms raw download data into meaningful business metrics
+      including volume categorization, rolling averages, and diversity metrics.
+    columns:
+      - name: download_date
+        description: Date of downloads (partitioning key)
+        tests:
+          - not_null
+      - name: project_name
+        description: Name of the PyMC project (clustering key)
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["pymc3", "pymc4", "pymc"]
+      - name: daily_downloads
+        description: Total number of downloads for the day
+        tests:
+          - not_null
+      - name: versions_downloaded
+        description: Number of unique package versions downloaded
+      - name: file_types_downloaded
+        description: Number of unique file types downloaded (wheel, tar.gz, etc.)
+      - name: unique_installers
+        description: Number of unique installer tools used (pip, conda, etc.)
+      - name: unique_python_versions
+        description: Number of unique Python versions used for downloads
+      - name: unique_systems
+        description: Number of unique operating systems from downloads
+      - name: rolling_7day_avg_downloads
+        description: 7-day rolling average of daily downloads for trend analysis
+      - name: last_updated
+        description: Timestamp when the record was last processed
