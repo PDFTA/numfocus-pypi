@@ -1,0 +1,23 @@
+---
+version: 2
+
+seeds:
+  - name: numfocus-projects
+    description: |
+      Master list of NumFOCUS-affiliated projects with their PyPI package codes.
+      This seed file serves as the authoritative source for which projects to track
+      in the data pipeline and whether they are available on PyPI.
+    columns:
+      - name: project_name
+        description: The official name of the NumFOCUS project
+        tests:
+          - not_null
+          - unique
+      - name: project_code
+        description: The PyPI package name/code used for downloading data
+        tests:
+          - not_null
+      - name: on_pip
+        description: Boolean flag indicating if the project is available on PyPI
+        tests:
+          - not_null

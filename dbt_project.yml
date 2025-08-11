@@ -5,6 +5,7 @@ config-version: 2
 profile: "pypi-dwh"
 
 model-paths: ["models"]
+seed-paths: ["seeds"]
 test-paths: ["tests"]
 
 models:
@@ -12,3 +13,14 @@ models:
   +persist_docs:
     relation: true
     columns: true
+
+seeds:
+  numfocus_pypi:
+    +persist_docs:
+      relation: true
+      columns: true
+    numfocus-projects:
+      +column_types:
+        project_name: STRING
+        project_code: STRING
+        on_pip: BOOLEAN

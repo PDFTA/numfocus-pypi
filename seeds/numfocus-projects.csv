@@ -1,0 +1,14 @@
+project_name,project_code,on_pip
+PyMC3,pymc3,true
+NumPy,numpy,true
+Matplotlib,matplotlib,true
+pandas,pandas,true
+SciPy,scipy,true
+nteract,nteract,false
+Stan,cmdstanpy,true
+Julia,julia,false
+JuMP,jump,false
+PyTables,tables,true
+SymPy,sympy,true
+fenics project,fenics,false
+yt,yt,true
